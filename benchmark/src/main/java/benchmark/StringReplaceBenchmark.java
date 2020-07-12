@@ -1,3 +1,4 @@
+package benchmark;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -31,33 +32,13 @@ public class StringReplaceBenchmark {
     }
 
     @Benchmark
-    public void testStringReplaceLongStringNoMatch(Blackhole blackhole) {
-        blackhole.consume(LONG_STRING_NO_MATCH.replace("'", "''"));
-    }
-
-    @Benchmark
-    public void testStringReplaceShortStringOneMatch(Blackhole blackhole) {
-        blackhole.consume(SHORT_STRING_ONE_MATCH.replace("'", "''"));
-    }
-
-    @Benchmark
-    public void testStringReplaceLongStringOneMatch(Blackhole blackhole) {
-        blackhole.consume(LONG_STRING_ONE_MATCH.replace("'", "''"));
-    }
-
-    @Benchmark
-    public void testStringReplaceShortStringSeveralMatches(Blackhole blackhole) {
-        blackhole.consume(SHORT_STRING_SEVERAL_MATCHES.replace("'", "''"));
-    }
-
-    @Benchmark
-    public void testStringReplaceLongStringSeveralMatches(Blackhole blackhole) {
-        blackhole.consume(LONG_STRING_SEVERAL_MATCHES.replace("'", "''"));
-    }
-
-    @Benchmark
     public void testStringUtilsReplaceShortStringNoMatch(Blackhole blackhole) {
         blackhole.consume(StringUtils.replace(SHORT_STRING_NO_MATCH, "'", "''"));
+    }
+
+    @Benchmark
+    public void testStringReplaceLongStringNoMatch(Blackhole blackhole) {
+        blackhole.consume(LONG_STRING_NO_MATCH.replace("'", "''"));
     }
 
     @Benchmark
@@ -66,8 +47,18 @@ public class StringReplaceBenchmark {
     }
 
     @Benchmark
+    public void testStringReplaceShortStringOneMatch(Blackhole blackhole) {
+        blackhole.consume(SHORT_STRING_ONE_MATCH.replace("'", "''"));
+    }
+
+    @Benchmark
     public void testStringUtilsReplaceShortStringOneMatch(Blackhole blackhole) {
         blackhole.consume(StringUtils.replace(SHORT_STRING_ONE_MATCH, "'", "''"));
+    }
+
+    @Benchmark
+    public void testStringReplaceLongStringOneMatch(Blackhole blackhole) {
+        blackhole.consume(LONG_STRING_ONE_MATCH.replace("'", "''"));
     }
 
     @Benchmark
@@ -75,9 +66,20 @@ public class StringReplaceBenchmark {
         blackhole.consume(StringUtils.replace(LONG_STRING_ONE_MATCH, "'", "''"));
     }
 
+
+    @Benchmark
+    public void testStringReplaceShortStringSeveralMatches(Blackhole blackhole) {
+        blackhole.consume(SHORT_STRING_SEVERAL_MATCHES.replace("'", "''"));
+    }
+
     @Benchmark
     public void testStringUtilsReplaceShortStringSeveralMatches(Blackhole blackhole) {
         blackhole.consume(StringUtils.replace(SHORT_STRING_SEVERAL_MATCHES, "'", "''"));
+    }
+
+    @Benchmark
+    public void testStringReplaceLongStringSeveralMatches(Blackhole blackhole) {
+        blackhole.consume(LONG_STRING_SEVERAL_MATCHES.replace("'", "''"));
     }
 
     @Benchmark
